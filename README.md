@@ -1,5 +1,9 @@
 # stortinget-dataset
-Dataset from data.stortinget.no to create an interesting search.
+Dataset from data.stortinget.no to create an interesting offline search.
+
+Start selecting `stortings-periode` and index it. This will download data from data.stortinget.no through a few APIs and index it. Then you are ready to search that data.
+
+Need a search information model showing documents, data and metadata to connect the different entities.
 
 
 ## Content
