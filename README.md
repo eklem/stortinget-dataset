@@ -22,10 +22,12 @@ https://data.stortinget.no/eksport/saker?sesjonid=2022-2023&format=json
 
 https://data.stortinget.no/eksport/sak?sakid=94625&format=json
 
-Connection between `sak` and `votering_id`
+Connection between `sak` and `votering_id`:
+
 https://data.stortinget.no/eksport/voteringer?sakid=94625&format=json
 
 So you can see what a person voted:
+
 https://data.stortinget.no/eksport/voteringsresultat?voteringid=21349&format=json
 
 ### Representanter
