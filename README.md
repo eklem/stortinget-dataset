@@ -5,7 +5,11 @@ Start selecting `stortings-periode` and index it. This will download data from d
 
 Need a search information model showing documents, data and metadata to connect the different entities.
 
-## Content
+## Search information model
+
+
+
+## API Content
 
 So far, what looks like interesting data. Also need how the representatives vote and be able to aggregate that to political parties. The two first is to get which sessions to fetch and index:
 
