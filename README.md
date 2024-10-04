@@ -7,7 +7,13 @@ Need a search information model showing documents, data and metadata to connect 
 
 ## Search information model
 
+![Drawing of work-in-progress search information model](https://github.com/eklem/stortinget-dataset-search/blob/trunk/search-information-model-v01.png)
 
+Suggested entities to search for:
+
+* Political parties
+* Representatives
+* Cases 
 
 ## API Content
 
