@@ -17,7 +17,15 @@
     <script>
       const myJSON = document.querySelector('code')
 
-      fetch('https://data.stortinget.no/eksport/stortingsperioder?format=json')
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Access-Control-Allow-Origin", "*");
+      myHeaders.append("mode", "cors");
+
+
+      fetch('https://data.stortinget.no/eksport/stortingsperioder?format=json', {
+        headers: myHeaders
+        })
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error, status = ${response.status}`);
