@@ -12,35 +12,45 @@
 
   <body>
     <h1>Fetch json example</h1>
-    <code></code>
+
+    <h2>Saksliste</h2>
+    <pre id="saksliste"></pre>
+
+    <h2>Sak 93583</h2>
+    <pre id="sak"></pre>
 
     <script>
-      const myJSON = document.querySelector('code')
-
-      const myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      myHeaders.append("Access-Control-Allow-Origin", "*");
-      myHeaders.append("mode", "cors");
-
-
-      fetch('https://data.stortinget.no/eksport/stortingsperioder?format=json', {
-        headers: myHeaders
-        })
+      fetch('https://cors-anywhere.herokuapp.com/https://data.stortinget.no/eksport/saker?sesjonid=2022-2023&format=json')
         .then((response) => {
           if (!response.ok) {
-            throw new Error(`HTTP error, status = ${response.status}`);
+            throw new Error(`HTTP error, status = ${response.status}`)
           }
-          return response.json();
+          return response.json()
         })
         .then((data) => {
-          console.log(data)
-          myJSON.appendChild(data);
+          console.log(JSON.stringify(data))
+          document.getElementById('saksliste').innerHTML= JSON.stringify(data, false , 2)
         })
         .catch((error) => {
-          const p = document.createElement("p");
-          p.appendChild(document.createTextNode(`Error: ${error.message}`));
-          document.body.insertBefore(p, myJSON);
-        });
+          const span = document.createElement("span")
+          document.getElementById('saksliste').innerHTML= `Error: ${error.message}`
+        })
+
+        fetch('https://cors-anywhere.herokuapp.com/https://data.stortinget.no/eksport/sak?sakid=93583&format=json')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error, status = ${response.status}`)
+          }
+          return response.json()
+        })
+        .then((data) => {
+          console.log(JSON.stringify(data))
+          document.getElementById('sak').innerHTML= JSON.stringify(data, false , 2)
+        })
+        .catch((error) => {
+          const span = document.createElement("span")
+          document.getElementById('sak').innerHTML= `Error: ${error.message}`
+        })
     </script>
   </body>
 </html>
