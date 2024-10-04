@@ -1,25 +1,27 @@
 # stortinget-dataset
-Dataset from data.stortinget.no to create an interesting offline search.
+Datasett fra data.stortinget.no for å lage et interessant søk.
 
-Start selecting `stortings-periode` and index it. This will download data from data.stortinget.no through a few APIs and index it. Then you are ready to search that data.
+Kilde for data: [Stortinget](https://data.norge.no/nlod/no) - under [Norsk lisens for offentlige data (NLOD) 2.0](https://data.norge.no/nlod/no/2.0)
 
-Need a search information model showing documents, data and metadata to connect the different entities.
+Start med å velge `stortings-periode` og indekser. Dette skal laste ned data fra data.stortinget.no via noen APIer, transformere og indeksere dem. Så skal du kunne søke i disse dataene.
 
-## Search information model
+Trenger en søkeinformasjons-modell som viser partier, representanter og saker og metadataene + APIene som er tenkt brukt og vist.
 
-![Drawing of work-in-progress search information model](https://github.com/eklem/stortinget-dataset-search/blob/trunk/search-information-model-v01.png)
+## Søkeinformasjons-modell
 
-Suggested entities to search for:
+![Tegning av søkeinformasjons-modell](https://github.com/eklem/stortinget-dataset-search/blob/trunk/search-information-model-v01.png)
 
-* Political parties
-* Representatives
-* Cases 
+Foreslåtte entiteter å kunne søke etter:
 
-## API Content
+* Politiske partier
+* Representanter
+* Saker
 
-So far, what looks like interesting data. Also need how the representatives vote and be able to aggregate that to political parties. The two first is to get which sessions to fetch and index:
+## API-innhold
 
-### Stortingsperioder and sesjoner
+Ser så langt ut som interessante data. Litt vanskelig å skjønne hvordan voteringer-APIene fungere og hvordan aggregere dette. Særlig for saker som blir enstemmig vedtatt.
+
+### Stortingsperioder og sesjoner
 
 https://data.stortinget.no/eksport/stortingsperioder?format=json
 https://data.stortinget.no/eksport/sesjoner?format=json
@@ -32,11 +34,11 @@ https://data.stortinget.no/eksport/saker?sesjonid=2022-2023&format=json
 
 https://data.stortinget.no/eksport/sak?sakid=94625&format=json
 
-Connection between `sak` and `votering_id`:
+Kobling mellom `sak` og `votering_id`:
 
 https://data.stortinget.no/eksport/voteringer?sakid=94625&format=json
 
-So you can see what a person voted:
+Så du kan se hva en representant stemte:
 
 https://data.stortinget.no/eksport/voteringsresultat?voteringid=21349&format=json
 
