@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Fetch json example</title>
+
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+
+  <body>
+    <h1>Fetch json example</h1>
+    <code></code>
+
+    <script>
+      const myJSON = document.querySelector('code')
+
+      fetch('https://data.stortinget.no/eksport/stortingsperioder?format=json')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error, status = ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data)
+          myJSON.appendChild(data);
+        })
+        .catch((error) => {
+          const p = document.createElement("p");
+          p.appendChild(document.createTextNode(`Error: ${error.message}`));
+          document.body.insertBefore(p, myJSON);
+        });
+    </script>
+  </body>
+</html>
