@@ -17,6 +17,15 @@ Foreslåtte entiteter å kunne søke etter:
 * Representanter
 * Saker
 
+### Første versjon
+
+![Tegning av søkeinformasjons-modell](https://github.com/eklem/stortinget-dataset-search/blob/trunk/search-information-model-v01.png)
+
+1. Hente liste over sesjoner.
+2. La brukeren velge en sesjon og finne saker i denne sesjonen
+3. Bruke listen med oversikt over saker til å hente og indeksere enkeltsaker
+4. Også bruke enkeltsakene til å finne og indeksere representanter som har vært aktive
+
 ## API-innhold
 
 Ser så langt ut som interessante data. Litt vanskelig å skjønne hvordan voteringer-APIene fungere og hvordan aggregere dette. Særlig for saker som blir enstemmig vedtatt.
