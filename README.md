@@ -19,7 +19,7 @@ Foreslåtte entiteter å kunne søke etter:
 
 ### Første versjon
 
-![Tegning av søkeinformasjons-modell](https://github.com/eklem/stortinget-dataset-search/blob/trunk/search-information-model-v01.png)
+![Tegning av nedskalert søkeinformasjons-modell](https://github.com/eklem/stortinget-dataset-search/blob/trunk/search-information-model-v02.png)
 
 1. Hente liste over sesjoner.
 2. La brukeren velge en sesjon og finne saker i denne sesjonen
