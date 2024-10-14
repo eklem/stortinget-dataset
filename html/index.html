@@ -20,6 +20,21 @@
     <pre id="sak"></pre>
 
     <script>
+      fetch('https://proxy.klemespen.com:8080/https://data.stortinget.no/eksport/sak?sakid=93583&format=json')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error, status = ${response.status}`)
+          }
+          return response.json()
+        })
+        .then((data) => {
+          console.log(JSON.stringify(data))
+          document.getElementById('sak').innerHTML= JSON.stringify(data, false , 2)
+        })
+        .catch((error) => {
+          const span = document.createElement("span")
+          document.getElementById('sak').innerHTML= `Error: ${error.message}`
+        })
       fetch('https://proxy.klemespen.com:8080/https://data.stortinget.no/eksport/saker?sesjonid=2022-2023&format=json')
         .then((response) => {
           if (!response.ok) {
@@ -34,22 +49,6 @@
         .catch((error) => {
           const span = document.createElement("span")
           document.getElementById('saksliste').innerHTML= `Error: ${error.message}`
-        })
-
-        fetch('https://proxy.klemespen.com:8080/https://data.stortinget.no/eksport/sak?sakid=93583&format=json')
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error, status = ${response.status}`)
-          }
-          return response.json()
-        })
-        .then((data) => {
-          console.log(JSON.stringify(data))
-          document.getElementById('sak').innerHTML= JSON.stringify(data, false , 2)
-        })
-        .catch((error) => {
-          const span = document.createElement("span")
-          document.getElementById('sak').innerHTML= `Error: ${error.message}`
         })
     </script>
   </body>
